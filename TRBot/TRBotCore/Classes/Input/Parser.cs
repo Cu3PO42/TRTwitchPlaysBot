@@ -55,12 +55,12 @@ namespace TRBot
         /// <summary>
         /// The start of the input regex string.
         /// </summary>
-        public const string ParseRegexStart = @"(" + ParseRegexPortInput + @"\d+)?" + "([" + ParseRegexHoldInput + ParseRegexReleaseInput + "])?(";
+        public const string ParseRegexStart = @"()?()?(";
 
         /// <summary>
         /// The end of the input regex string.
         /// </summary>
-        public const string ParseRegexEnd = @")(\d+" + ParseRegexPercentInput + @")?((\d+" + ParseRegexMillisecondsInput + @")|(\d+" + ParseRegexSecondsInput + @"))?(" + ParseRegexPlusInput + ")?";
+        public const string ParseRegexEnd = @")()?(()|())?()?";
 
         private static Comparison<(string, (int, int), List<string>)> SubCompare = SubComparison;
 
@@ -442,10 +442,10 @@ namespace TRBot
         public static InputSequence ParseInputs(string message, in int defControllerPort, in bool checkMaxDur, in bool useSynonyms)
         {
             //Populate synonyms and remove all whitespace
-            if (useSynonyms == true)
+            /*if (useSynonyms == true)
             {
                 message = PopulateSynonyms(message, InputGlobals.InputSynonyms);
-            }
+            }*/
 
             message = message.Replace(" ", string.Empty).ToLower();
 
@@ -473,7 +473,7 @@ namespace TRBot
             MatchCollection matches = Regex.Matches(message, regex, RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
 
             //No matches, so invalid input
-            if (matches.Count <= 0)
+            if (matches.Count != 1)
             {
                 return new InputSequence(InputValidationTypes.NormalMsg, null, 0, "ERR_NORMAL_MSG");
             }
