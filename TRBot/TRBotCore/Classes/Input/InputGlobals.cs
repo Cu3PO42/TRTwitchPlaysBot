@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Text;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace TRBot
 {
@@ -174,12 +175,9 @@ namespace TRBot
         {
             switch (vControllerType)
             {
-                #if WINDOWS
-                case VControllerTypes.vJoy: return true;
-                #else
-                case VControllerTypes.uinput: return true;
-                case VControllerTypes.xdotool: return true;
-                #endif
+                case VControllerTypes.vJoy: return RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+                case VControllerTypes.uinput:
+                case VControllerTypes.xdotool: return RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
                 default: return false;
             }
         }
