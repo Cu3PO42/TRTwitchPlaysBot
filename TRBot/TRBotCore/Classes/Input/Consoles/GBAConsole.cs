@@ -37,7 +37,7 @@ namespace TRBot
             { "b", (int)GlobalButtonVals.BTN6 },
             { "select", (int)GlobalButtonVals.BTN7 },
             { "start", (int)GlobalButtonVals.BTN8 },
-            { "ss1", (int)GlobalButtonVals.BTN19 },
+            /*{ "ss1", (int)GlobalButtonVals.BTN19 },
             { "ss2", (int)GlobalButtonVals.BTN20 },
             { "ss3", (int)GlobalButtonVals.BTN21 },
             { "ss4", (int)GlobalButtonVals.BTN22 },
@@ -48,7 +48,7 @@ namespace TRBot
             { "ls3", (int)GlobalButtonVals.BTN27 },
             { "ls4", (int)GlobalButtonVals.BTN28 },
             { "ls5", (int)GlobalButtonVals.BTN29 },
-            { "ls6", (int)GlobalButtonVals.BTN30 },
+            { "ls6", (int)GlobalButtonVals.BTN30 },*/
             { "l", (int)GlobalButtonVals.BTN31 },
             { "r", (int)GlobalButtonVals.BTN32 }
         };
@@ -56,8 +56,8 @@ namespace TRBot
         public override string[] ValidInputs { get; protected set; } = new string[]
         {
             "up", "down", "left", "right", "a", "b", "select", "start", "l", "r",
-            "ss1", "ss2", "ss3", "ss4", "ss5", "ss6",
-            "ls1", "ls2", "ls3", "ls4", "ls5", "ls6",
+            //"ss1", "ss2", "ss3", "ss4", "ss5", "ss6",
+            //"ls1", "ls2", "ls3", "ls4", "ls5", "ls6",
             "#"
         };
 
